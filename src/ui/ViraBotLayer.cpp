@@ -5,7 +5,7 @@
 
 using namespace geode::prelude;
 
-class ViraBotPopup : public geode::Popup<> {
+class ViraBotPopup : public geode::Popup {
 protected:
     bool init() {
         if (!Popup::init(260.f, 220.f))
