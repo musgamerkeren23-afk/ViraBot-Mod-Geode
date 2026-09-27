@@ -11,7 +11,9 @@
   "description": "Mod utility, bot, macro recorder, cheats/QoL, dan projector untuk Geometry Dash.",
   "early-load": true,
   "resources": {
-    "spritesheets": {}
-  },
+    "files": [
+        "resources/*.png"
+    ]
+},
   "dependencies": {}
 }
