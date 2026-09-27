@@ -1,0 +1,17 @@
+{
+  "geode": "v5.9.0",
+  "gd": {
+    "android": "2.208",
+    "win": "2.208"
+  },
+  "version": "v0.1.0",
+  "id": "com.musgamerkeren23.virabot",
+  "name": "ViraBot",
+  "developer": "musgamerkeren23",
+  "description": "Mod utility, bot, macro recorder, cheats/QoL, dan projector untuk Geometry Dash.",
+  "early-load": true,
+  "resources": {
+    "spritesheets": {}
+  },
+  "dependencies": []
+}
