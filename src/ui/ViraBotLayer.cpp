@@ -7,14 +7,17 @@ using namespace geode::prelude;
 
 class ViraBotPopup : public geode::Popup<> {
 protected:
-    bool setup() override {
+    bool init() {
+        if (!Popup::init(260.f, 220.f))
+            return false;
+
         this->setTitle("ViraBot");
 
         auto menu = CCMenu::create();
         menu->setPosition({0, 0});
         m_mainLayer->addChild(menu);
 
-        float startY = m_size.height / 2 - 40.f;
+        float startY = 60.f;
         float spacing = 40.f;
 
         addToggle(menu, "Noclip", &ViraBotState::noclip, startY, 1);
@@ -29,14 +32,14 @@ protected:
         auto labelNode = CCLabelBMFont::create(label, "bigFont.fnt");
         labelNode->setScale(0.45f);
         labelNode->setAnchorPoint({0.f, 0.5f});
-        labelNode->setPosition({-m_size.width / 2 + 25.f, y});
+        labelNode->setPosition({20.f, y});
         m_mainLayer->addChild(labelNode);
 
         auto toggler = CCMenuItemToggler::createWithStandardSprites(
             this, menu_selector(ViraBotPopup::onToggle), 0.6f
         );
         toggler->toggle(*state);
-        toggler->setPosition({m_size.width / 2 - 25.f, y});
+        toggler->setPosition({230.f, y});
         toggler->setTag(tag);
         menu->addChild(toggler);
     }
@@ -58,11 +61,11 @@ protected:
 public:
     static ViraBotPopup* create() {
         auto ret = new ViraBotPopup();
-        if (ret && ret->initAnchored(260.f, 220.f)) {
+        if (ret->init()) {
             ret->autorelease();
             return ret;
         }
-        CC_SAFE_DELETE(ret);
+        delete ret;
         return nullptr;
     }
 };
